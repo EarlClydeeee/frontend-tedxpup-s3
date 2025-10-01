@@ -3,6 +3,7 @@ import { initMobileNavigation, initSmoothScrolling } from './modules/navigation.
 import { initScrollAnimations } from './modules/animations.js';
 import { initIdCard } from './modules/id.js';
 import { initCountdown } from './modules/countdown.js';
+import { initSpeakerImages } from './modules/speakers.js';
 
 // Initialize all modules when DOM is ready
 ready(() => {
@@ -11,4 +12,5 @@ ready(() => {
     initScrollAnimations();
     initIdCard();
     initCountdown();
+    initSpeakerImages();
 });
