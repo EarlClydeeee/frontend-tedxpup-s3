@@ -13,7 +13,7 @@
 @import url('./layout/navigation.css');
 @import url('./layout/footer.css');
 
-/* UI Components */
+   /* UI Components */
 @import url('./components/hero.css');
 @import url('./components/buttons.css');
 @import url('./components/cards.css');
@@ -23,6 +23,7 @@
 @import url('./components/countdown.css');
 @import url('./components/tickets.css');
 @import url('./components/modal.css');
+@import url('./components/id.css');
 
 /* Utilities (Load Last) */
 @import url('./utilities/animations.css');
