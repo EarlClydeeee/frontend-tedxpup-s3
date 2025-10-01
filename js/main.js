@@ -4,6 +4,7 @@ import { initScrollAnimations } from './modules/animations.js';
 import { initIdCard } from './modules/id.js';
 import { initCountdown } from './modules/countdown.js';
 import { initSpeakerImages } from './modules/speakers.js';
+import { initColorTransitions, initHeroSpeakersScrollBlend } from './modules/theme.js';
 
 // Initialize all modules when DOM is ready
 ready(() => {
@@ -13,4 +14,6 @@ ready(() => {
     initIdCard();
     initCountdown();
     initSpeakerImages();
+    initColorTransitions();
+    initHeroSpeakersScrollBlend();
 });
