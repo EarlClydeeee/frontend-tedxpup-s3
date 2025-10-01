@@ -5,6 +5,10 @@
     justify-content: center;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
+    max-width: none;
+    width: 100%;
+    margin: 0;
     padding: 6rem 1.5rem 4rem;
 }
 
