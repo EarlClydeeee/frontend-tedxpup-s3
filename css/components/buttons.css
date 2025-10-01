@@ -1,0 +1,21 @@
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--crimson);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 30px var(--glow);
+    border: 2px solid var(--crimson);
+}
+
+.cta-button:hover {
+    background: transparent;
+    transform: scale(1.05);
+    box-shadow: 0 0 40px var(--glow);
+}

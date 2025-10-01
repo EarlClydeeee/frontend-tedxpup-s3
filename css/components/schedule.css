@@ -1,0 +1,61 @@
+
+/* Schedule Section */
+.schedule-timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+.schedule-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--crimson);
+}
+
+.schedule-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--dark-gray);
+    border-radius: 10px;
+    border: 1px solid var(--light-gray);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.schedule-item:hover {
+    transform: translateX(10px);
+    border-color: var(--crimson);
+}
+
+.schedule-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
+    background: var(--crimson);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--glow);
+}
+
+.schedule-time {
+    color: var(--crimson);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.schedule-event {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.schedule-desc {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
