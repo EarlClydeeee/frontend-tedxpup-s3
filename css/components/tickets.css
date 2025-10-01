@@ -1,0 +1,36 @@
+.tickets {
+    background: var(--dark-gray);
+    border-radius: 20px;
+    padding: 3rem 1.5rem;
+    text-align: center;
+    border: 1px solid var(--crimson);
+}
+
+.ticket-price {
+    font-size: 3rem;
+    color: var(--crimson);
+    font-weight: bold;
+    margin: 1rem 0;
+    text-shadow: 0 0 20px var(--glow);
+}
+
+.ticket-features {
+    list-style: none;
+    margin: 2rem 0;
+    text-align: left;
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+.ticket-features li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--light-gray);
+    font-size: 0.95rem;
+}
+
+.ticket-features li::before {
+    content: '✓';
+    color: var(--crimson);
+    font-weight: bold;
+    margin-right: 1rem;
+}

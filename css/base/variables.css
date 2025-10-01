@@ -1,0 +1,11 @@
+
+:root {
+    --crimson: #DC143C;
+    --dark-crimson: #A01024;
+    --black: #0a0a0a;
+    --dark-gray: #1a1a1a;
+    --mid-gray: #2a2a2a;
+    --light-gray: #3a3a3a;
+    --white: #ffffff;
+    --glow: rgba(220, 20, 60, 0.6);
+}
