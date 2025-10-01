@@ -8,4 +8,8 @@
     --light-gray: #3a3a3a;
     --white: #ffffff;
     --glow: rgba(220, 20, 60, 0.6);
+    --glow-crimson: rgba(235, 0, 40, 0.4);
+    --glow: rgba(235, 0, 40, 0.4);
+    --dark: #0a0a0a;
+    --glow-bright: rgba(235, 0, 40, 0.8);
 }

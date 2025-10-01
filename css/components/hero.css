@@ -6,98 +6,238 @@
     position: relative;
     overflow: hidden;
     isolation: isolate;
-    max-width: none;
-    width: 100%;
-    margin: 0;
-    padding: 6rem 1.5rem 4rem;
 }
 
+/* Animated gradient background */
 .hero::before {
     content: '';
     position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 20% 50%, var(--glow) 0%, transparent 40%),
+        radial-gradient(circle at 80% 50%, rgba(235, 0, 40, 0.3) 0%, transparent 40%),
+        radial-gradient(circle at 50% 20%, rgba(235, 0, 40, 0.2) 0%, transparent 50%);
+    animation: rotate 20s linear infinite;
+    opacity: 0.6;
+    z-index: 0;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Floating particles */
+.particles {
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: 
-        radial-gradient(circle at 17% 41%, var(--glow) 0%, transparent 53%),
-        radial-gradient(circle at 83% 62%, var(--glow) 0%, transparent 53%),
-        radial-gradient(circle at 35% 77%, var(--glow) 0%, transparent 53%),
-        radial-gradient(circle at 68% 28%, var(--glow) 0%, transparent 53%);
-        radial-gradient(circle at 17% 41%, var(--glow) 0%, transparent 12%),
-        radial-gradient(circle at 83% 62%, var(--glow) 0%, transparent 42%),
-        radial-gradient(circle at 35% 77%, var(--glow) 0%, transparent 53%),
-        radial-gradient(circle at 68% 28%, var(--glow) 0%, transparent 53%);
-    animation: pulse 8s ease-in-out infinite;   
-    opacity: 0.3;
-    z-index: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
     pointer-events: none;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.5; }
+.particle {
+    position: absolute;
+    background: var(--crimson);
+    border-radius: 50%;
+    opacity: 0;
+    animation: float 15s infinite ease-in-out;
+    box-shadow: 0 0 20px var(--glow);
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-100px) scale(1);
+    }
 }
 
 .hero-content {
     text-align: center;
-    z-index: 1;
-    max-width: 800px;
+    z-index: 10;
+    max-width: 900px;
+    padding: 0 2rem;
 }
 
 .hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    margin-bottom: 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 8px;
+    font-weight: 900;
+    position: relative;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.2s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero h1 .ted {
     color: var(--crimson);
-    text-shadow: 0 0 20px var(--glow);
+    text-shadow: 
+        0 0 40px var(--glow),
+        0 0 80px var(--glow),
+        0 5px 20px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 
+            0 0 40px var(--glow),
+            0 0 80px var(--glow),
+            0 5px 20px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        text-shadow: 
+            0 0 60px var(--glow),
+            0 0 120px var(--glow),
+            0 5px 30px rgba(0, 0, 0, 0.8);
+    }
 }
 
 .tagline {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3vw, 1.5rem);
     margin-bottom: 2rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 300;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.4s;
 }
 
 .date-location {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
     margin-bottom: 3rem;
-    color: var(--crimson);
-    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    letter-spacing: 1px;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.6s;
 }
 
-/* Smoke Trail Effect */
+.date-location::before {
+    content: '◆';
+    margin-right: 10px;
+    color: var(--crimson);
+}
+
+.date-location::after {
+    content: '◆';
+    margin-left: 10px;
+    color: var(--crimson);
+}
+
+/* CTA Button with magnetic effect */
+.cta-button {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background: transparent;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: 2px solid var(--crimson);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards 0.8s;
+    cursor: pointer;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--crimson);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px var(--glow);
+}
+
+.cta-button:hover::before {
+    left: 0;
+}
+
+/* Smoke trail cursor effect */
 .smoke-particle {
     position: fixed;
     pointer-events: none;
-    z-index: 10000;
+    z-index: 9999;
     border-radius: 50%;
-    filter: blur(8px);
+    filter: blur(10px);
     mix-blend-mode: screen;
 }
 
 @keyframes smokeRise {
     0% {
         transform: translate(-50%, -50%) scale(1) rotate(0deg);
-        opacity: 0.8;
+        opacity: 0.7;
     }
     100% {
-        transform: translate(-50%, -50%) scale(3) rotate(180deg);
+        transform: translate(-50%, -50%) translateY(-80px) scale(3) rotate(180deg);
         opacity: 0;
     }
 }
 
-@keyframes smokeDrift {
-    0% {
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.7;
+/* Grid overlay */
+.grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(235, 0, 40, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(235, 0, 40, 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        letter-spacing: 4px;
     }
-    100% {
-        transform: translate(calc(-50% + 40px), calc(-50% - 40px)) scale(2.5);
-        opacity: 0;
+    
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
     }
 }
